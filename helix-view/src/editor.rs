@@ -374,6 +374,9 @@ pub struct Config {
     pub true_color: bool,
     /// Set to `true` to override automatic detection of terminal undercurl support in the event of a false negative. Defaults to `false`.
     pub undercurl: bool,
+    /// Set to `true` to allow Helix to query and adapt to the terminal's background color.
+    /// Useful for terminals with transparent backgrounds. Defaults to `false`.
+    pub terminal_background_color: bool,
     /// Search configuration.
     #[serde(default)]
     pub search: SearchConfig,
@@ -1124,6 +1127,7 @@ impl Default for Config {
             cursor_shape: CursorShapeConfig::default(),
             true_color: false,
             undercurl: false,
+            terminal_background_color: false,
             search: SearchConfig::default(),
             lsp: LspConfig::default(),
             terminal: get_terminal_provider(),
